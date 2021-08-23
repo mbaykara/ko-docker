@@ -31,3 +31,6 @@ Digest: sha256:0e14688d59970572ef0c47daf91d113396d4b97634d58c0bba6235ca03515347
 Status: Downloaded newer image for baykara/goapp:prod
 The time is 2021-08-23 20:26:52.8333876 +0000 UTC m=+0.000087501
 ```
+
+
+For more info -> [official](https://github.com/google/ko)
