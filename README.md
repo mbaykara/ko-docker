@@ -1,6 +1,6 @@
 # ko
 ## Build and Deploy Go Application
-No need a dockerfile
+No need a dockerfile. `ko` use the existing registry creds in `.docker/config.json'
 
 Export the registry and repo as env
 ```
@@ -29,6 +29,5 @@ prod: Pulling from baykara/goapp
 0d7d70899875: Already exists                                                                                            72164b581b02: Already exists                               0135a0a055da: Pull complete 
 Digest: sha256:0e14688d59970572ef0c47daf91d113396d4b97634d58c0bba6235ca03515347
 Status: Downloaded newer image for baykara/goapp:prod
-Moinsen
 The time is 2021-08-23 20:26:52.8333876 +0000 UTC m=+0.000087501
 ```
