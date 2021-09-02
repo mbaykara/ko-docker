@@ -1,3 +1,0 @@
-#you can use any image you like for your application
-#if you omit this file, then the default image "distroless/static" will be used
-defaultBaseImage: alpine
