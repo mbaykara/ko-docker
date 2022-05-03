@@ -1,7 +1,7 @@
 FROM golang:alpine:3.15.0
 
 ENV OS=LINUX \
-    VERSION=0.10.0 \
+    VERSION=0.11.2 \
     ARCH=x86_64
 RUN apk add --no-cache curl && \
     curl curl -L https://github.com/google/ko/releases/download/v${VERSION}/ko_${VERSION}_${OS}_${ARCH}.tar.gz | tar xzf - ko &&\
