@@ -1,4 +1,4 @@
-FROM golang:alpine:3.15.0
+FROM golang:alpine
 
 ENV OS=LINUX \
     VERSION=0.11.2 \
