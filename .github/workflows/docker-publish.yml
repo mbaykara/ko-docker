@@ -3,12 +3,7 @@ name: Publish Docker image
 on:
   push:
     branches: [ main ]
-    # Publish semver tags as releases.
     tags: [ '0.1.1' ]
-  pull_request:
-    branches: [ main ]
-env:
-  SHA: $(git rev-parse --short "$GITHUB_SHA")
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -23,18 +18,11 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_USER_PASS }}
       
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-        with:
-          images: baykara/ko
-          tags: ${{ env.GITHUB_SHA }}
-          
-      
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
+          images: baykara/ko
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: sometags
           labels: ${{ steps.meta.outputs.labels }}
