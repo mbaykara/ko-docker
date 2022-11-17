@@ -4,6 +4,7 @@ on:
   push:
     branches: [ main ]
     tags: [ '0.1.1' ]
+
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
@@ -18,11 +19,18 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_USER_PASS }}
       
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        with:
+          images: baykara/ko
+          tags: ${{ env.GITHUB_SHA }}
+          
+      
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
-          images: baykara/ko
           push: true
-          tags: sometags
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
