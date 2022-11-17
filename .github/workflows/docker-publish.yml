@@ -28,7 +28,7 @@ jobs:
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: baykara/ko
-          tags: "mehmet"
+          tags: foo
           
       
       - name: Build and push Docker image
@@ -36,5 +36,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.GITHUB_SHA }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
