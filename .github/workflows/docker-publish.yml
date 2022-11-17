@@ -17,6 +17,6 @@ jobs:
           image: baykara/ko
           tags: v1, latest
           registry: docker.io/library
-          dockerfile: .
+          dockerfile: ./Dockerfile
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_USER_PASS }}
